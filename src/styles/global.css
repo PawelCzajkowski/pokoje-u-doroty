@@ -1,9 +1,14 @@
 :root {
-  --color-primary: #5d4037; /* Deep rustic brown */
-  --color-secondary: #8d6e63; /* Light rustic brown */
-  --color-accent: #6b8e23; /* Olive green */
-  --color-bg: #fffbf0; /* Soft cream background */
-  --color-text: #3e2723; /* Dark brown text */
+  --color-primary: #7c9060;
+  /* Sage Green */
+  --color-secondary: #e0ab8e;
+  /* Soft Peach */
+  --color-accent: #4a7c82;
+  /* Muted Teal */
+  --color-bg: #fdfbf7;
+  /* Warm Off-white */
+  --color-text: #2c3531;
+  /* Dark Charcoal */
   --color-white: #ffffff;
   --font-header: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
@@ -26,7 +31,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, .font-header {
+h1,
+h2,
+h3,
+h4,
+.font-header {
   font-family: var(--font-header);
   line-height: 1.2;
 }
@@ -74,7 +83,18 @@ section {
 }
 
 /* Utilities */
-.text-center { text-align: center; }
-.mb-1 { margin-bottom: 1rem; }
-.mb-2 { margin-bottom: 2rem; }
-.mb-4 { margin-bottom: 4rem; }
+.text-center {
+  text-align: center;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-4 {
+  margin-bottom: 4rem;
+}
