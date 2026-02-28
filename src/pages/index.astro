@@ -1,0 +1,225 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const amenities = [
+	{ name: 'Bezpłatny parking', icon: '🚗' },
+	{ name: 'Dostęp do kuchni', icon: '🍳' },
+	{ name: 'Oddzielna łazienka', icon: '🚿' },
+	{ name: 'Bliskość jeziora', icon: '🌊' },
+	{ name: 'WiFi', icon: '📶' },
+];
+
+const rooms = [
+	{ id: 1, name: 'Pokój Sielski', image: '/images/room1.png' },
+	{ id: 2, name: 'Pokój Rodzinny', image: '/images/room2.png' },
+	{ id: 3, name: 'Przystań Spokoju', image: '/images/room3.png' },
+];
+---
+
+<MainLayout title="Pokoje u Doroty - Przytulne noclegi w Augustowie">
+	<!-- Hero Section -->
+	<section class="hero">
+		<div class="hero-content container">
+			<h1>Witaj w Pokojach u Doroty</h1>
+			<p>Odkryj spokój i domową atmosferę w sercu Augustowa. Zapraszamy do naszych przytulnych, rustykalnych pokoi.</p>
+			<div class="hero-btns">
+				<a href="/kontakt" class="btn">Zarezerwuj teraz</a>
+				<a href="/pokoje-i-cennik" class="btn btn-outline">Zobacz pokoje</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Room Tiles -->
+	<section class="rooms-tiles container">
+		<div class="section-header text-center">
+			<h2>Nasze Pokoje</h2>
+			<p>Kliknij w pokój, aby zobaczyć pełną galerię</p>
+		</div>
+		<div class="tiles-grid">
+			{rooms.map(room => (
+				<a href="/galeria" class="room-tile">
+					<div class="tile-image">
+						<img src={room.image} alt={room.name} loading="lazy" />
+					</div>
+					<div class="tile-info">
+						<h3>{room.name}</h3>
+						<span>Zobacz galerię &rarr;</span>
+					</div>
+				</a>
+			))}
+		</div>
+	</section>
+
+	<!-- Amenities -->
+	<section class="amenities bg-white">
+		<div class="container">
+			<div class="section-header text-center">
+				<h2>Udogodnienia</h2>
+				<p>Wszystko, czego potrzebujesz do udanego wypoczynku</p>
+			</div>
+			<div class="amenities-grid">
+				{amenities.map(item => (
+					<div class="amenity-item">
+						<span class="amenity-icon">{item.icon}</span>
+						<h3>{item.name}</h3>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Map & Contact Info -->
+	<section class="location container">
+		<div class="location-grid">
+			<div class="map-container">
+				<iframe 
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2353.3360029370688!2d22.966382090945377!3d53.854672901382656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e0510f8c06264f%3A0x31a8d8190bcce0ad!2sStaszica%2023%2C%2016-300%20August%C3%B3w!5e0!3m2!1spl!2spl!4v1772305846649!5m2!1spl!2spl" 
+					width="100%" 
+					height="450" 
+					style="border:0; border-radius: 12px;" 
+					allowfullscreen="" 
+					loading="lazy" 
+					referrerpolicy="no-referrer-when-downgrade">
+				</iframe>
+			</div>
+			<div class="contact-details">
+				<h2>Znajdź nas</h2>
+				<p class="mb-2">Nasze pokoje znajdują się w cichej okolicy Augustowa, zaledwie krótki spacer od jeziora.</p>
+				<div class="contact-info-block">
+					<p><strong>Adres:</strong><br/>ul. Staszica 23, 16-300 Augustów</p>
+					<p><strong>Telefon:</strong><br/>+48 123 456 789</p>
+					<p><strong>Email:</strong><br/>kontakt@pokoje-u-doroty.pl</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<style>
+		.hero {
+			background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/images/hero.png');
+			background-size: cover;
+			background-position: center;
+			color: white;
+			height: 80vh;
+			display: flex;
+			align-items: center;
+			text-align: center;
+		}
+		.hero h1 {
+			font-size: 3.5rem;
+			margin-bottom: 1.5rem;
+		}
+		.hero p {
+			font-size: 1.25rem;
+			max-width: 600px;
+			margin: 0 auto 2rem;
+		}
+		.hero-btns {
+			display: flex;
+			gap: 1rem;
+			justify-content: center;
+		}
+		.btn-outline {
+			background: transparent;
+			border: 2px solid white;
+		}
+		.btn-outline:hover {
+			background: white;
+			color: var(--color-primary);
+		}
+
+		.section-header {
+			margin-bottom: 3rem;
+		}
+		.section-header h2 {
+			font-size: 2.5rem;
+			color: var(--color-primary);
+			margin-bottom: 0.5rem;
+		}
+
+		.tiles-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 2rem;
+		}
+		.room-tile {
+			display: block;
+			background: white;
+			border-radius: var(--border-radius);
+			overflow: hidden;
+			box-shadow: var(--shadow);
+		}
+		.tile-image {
+			height: 250px;
+			overflow: hidden;
+		}
+		.tile-image img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: var(--transition);
+		}
+		.room-tile:hover .tile-image img {
+			transform: scale(1.05);
+		}
+		.tile-info {
+			padding: 1.5rem;
+		}
+		.tile-info h3 {
+			margin-bottom: 0.5rem;
+			color: var(--color-primary);
+		}
+		.tile-info span {
+			font-weight: 600;
+			color: var(--color-accent);
+		}
+
+		.bg-white {
+			background-color: white;
+		}
+		.amenities-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			gap: 2rem;
+			text-align: center;
+		}
+		.amenity-item {
+			padding: 2rem;
+			border-radius: var(--border-radius);
+			border: 1px solid rgba(93, 64, 55, 0.1);
+			transition: var(--transition);
+		}
+		.amenity-item:hover {
+			background-color: var(--color-bg);
+		}
+		.amenity-icon {
+			font-size: 3rem;
+			display: block;
+			margin-bottom: 1rem;
+		}
+
+		.location-grid {
+			display: grid;
+			grid-template-columns: 1.5fr 1fr;
+			gap: 4rem;
+			align-items: center;
+		}
+		.contact-details h2 {
+			font-size: 2rem;
+			color: var(--color-primary);
+			margin-bottom: 1rem;
+		}
+		.contact-info-block p {
+			margin-bottom: 1.5rem;
+		}
+
+		@media (max-width: 768px) {
+			.hero h1 { font-size: 2.5rem; }
+			.location-grid {
+				grid-template-columns: 1fr;
+			}
+			.map-container { order: 2; }
+			.contact-details { order: 1; text-align: center; }
+		}
+	</style>
+</MainLayout>

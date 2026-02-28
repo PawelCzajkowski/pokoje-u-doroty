@@ -1,0 +1,133 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Kontakt - Pokoje u Doroty" description="Masz pytania? Skontaktuj się z nami telefonicznie lub przez formularz. Zakwaterowanie w Augustowie.">
+	<section class="contact-page container">
+		<div class="section-header text-center">
+			<h1>Kontakt</h1>
+			<p>Jesteśmy tutaj, aby odpowiedzieć na Twoje pytania</p>
+		</div>
+
+		<div class="contact-container">
+			<div class="contact-form-block">
+				<h2>Napisz do nas</h2>
+				<form class="contact-form">
+					<div class="form-group">
+						<label for="name">Imię i Nazwisko</label>
+						<input type="text" id="name" name="name" required placeholder="Twoje imię..." />
+					</div>
+					<div class="form-group">
+						<label for="email">Adres E-mail</label>
+						<input type="email" id="email" name="email" required placeholder="twoj@email.pl" />
+					</div>
+					<div class="form-group">
+						<label for="message">Wiadomość</label>
+						<textarea id="message" name="message" rows="5" required placeholder="Jak możemy pomóc?"></textarea>
+					</div>
+					<button type="submit" class="btn">Wyślij wiadomość</button>
+				</form>
+			</div>
+
+			<div class="contact-info-panel">
+				<div class="info-card">
+					<h2>Nasze Dane</h2>
+					<div class="info-item">
+						<span class="icon">📍</span>
+						<div>
+							<h3>Adres</h3>
+							<p>ul. Staszica 23<br/>16-300 Augustów</p>
+						</div>
+					</div>
+					<div class="info-item">
+						<span class="icon">📞</span>
+						<div>
+							<h3>Telefon</h3>
+							<p>+48 123 456 789</p>
+						</div>
+					</div>
+					<div class="info-item">
+						<span class="icon">✉️</span>
+						<div>
+							<h3>E-mail</h3>
+							<p>kontakt@pokoje-u-doroty.pl</p>
+						</div>
+					</div>
+					<div class="info-item">
+						<span class="icon">🏛️</span>
+						<div>
+							<h3>Dane do przelewu</h3>
+							<p>Wszystkie dane podajemy przy rezerwacji telefonicznej.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="contact-map mt-4">
+			<iframe 
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2353.3360029370688!2d22.966382090945377!3d53.854672901382656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e0510f8c06264f%3A0x31a8d8190bcce0ad!2sStaszica%2023%2C%2016-300%20August%C3%B3w!5e0!3m2!1spl!2spl!4v1772305846649!5m2!1spl!2spl" 
+				width="100%" 
+				height="450" 
+				style="border:0; border-radius: 12px;" 
+				allowfullscreen="" 
+				loading="lazy" 
+				referrerpolicy="no-referrer-when-downgrade">
+			</iframe>
+		</div>
+	</section>
+
+	<style>
+		.contact-page { padding-top: 6rem; }
+		.section-header h1 { font-size: 3rem; color: var(--color-primary); }
+
+		.contact-container {
+			display: grid;
+			grid-template-columns: 1.2fr 1fr;
+			gap: 4rem;
+			margin-top: 4rem;
+		}
+
+		.contact-form-block h2 { margin-bottom: 2rem; color: var(--color-primary); }
+		.contact-form {
+			background: white;
+			padding: 2.5rem;
+			border-radius: var(--border-radius);
+			box-shadow: var(--shadow);
+		}
+		.form-group { margin-bottom: 1.5rem; }
+		.form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+		.form-group input, .form-group textarea {
+			width: 100%;
+			padding: 0.8rem;
+			border: 1px solid #ddd;
+			border-radius: 6px;
+			font-family: inherit;
+		}
+		.form-group input:focus, .form-group textarea:focus {
+			outline: none;
+			border-color: var(--color-primary);
+		}
+
+		.info-card {
+			background: var(--color-primary);
+			color: white;
+			padding: 2.5rem;
+			border-radius: var(--border-radius);
+			box-shadow: var(--shadow);
+		}
+		.info-card h2 { margin-bottom: 2.5rem; }
+		.info-item { display: flex; gap: 1.5rem; margin-bottom: 2rem; }
+		.info-item .icon { font-size: 1.5rem; }
+		.info-item h3 { font-size: 1.1rem; margin-bottom: 0.2rem; }
+		.info-item p { opacity: 0.9; }
+
+		.mt-4 { margin-top: 4rem; }
+
+		@media (max-width: 850px) {
+			.contact-container { grid-template-columns: 1fr; gap: 2rem; }
+			.contact-info-panel { order: 1; }
+			.contact-form-block { order: 2; }
+		}
+	</style>
+</MainLayout>
